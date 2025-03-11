@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website with YouTube Fallback and Fixed Header Background</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles for dark mode */
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    .dark-mode .navbar {
+      background-color: #1f1f1f !important;
+    }
+    .dark-mode .form-select {
+      background-color: #333;
+      color: #fff;
+    }
+    /* Padding for body content */
+    .body-content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    /* Scrollable section */
+    .scrollable-section {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    /* Card image size */
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    /* Sticky header */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+background-image: url('g.jpg');      
+background-size: cover;
+      background-position: center;
+      background-color: rgba(255, 255, 255, 0.9); /* Fix for transparency */
+    }
+    /* Big logo */
+    .big-logo {
+      height: 60px;
+    }
+    /* Vertical line */
+    .vertical-line {
+      border-left: 2px solid #ddd;
+      height: 100%;
+      margin: 0 20px;
+    }
+    /* Alert slider */
+    .alert-slider {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #f5c6cb;
+    }
+    /* Footer */
+    footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* Social media icons */
+    .social-media a {
+      color: #333;
+      margin: 0 10px;
+      font-size: 24px;
+    }
+    .social-media a:hover {
+      color: #007bff;
+    }
+    /* Additional image */
+    .additional-image {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+    /* YouTube fallback */
+    .youtube-fallback {
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-header">
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <!-- Big Logo -->
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" alt="Logo" class="big-logo">
+        </a>
+
+        <!-- Vertical Line -->
+        <div class="vertical-line d-none d-lg-block"></div>
+
+        <!-- Menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Search Bar -->
+        <form class="d-flex me-3">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Night/Day Mode Toggle -->
+        <div class="me-3">
+          <!-- Bootstrap Button -->
+          <button class="btn btn-outline-secondary" id="theme-toggle">
+            <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+          </button>
+        </div>
+
+        <!-- Language Selection -->
+        <div class="d-flex">
+          <!-- Bootstrap Form Select -->
+          <select class="form-select" id="language-select">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Alert Slider -->
+  <div class="alert-slider">
+    <marquee>🚨 New Alert: This is an important announcement! 🚨</marquee>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container mt-4 body-content">
+    <h1>Welcome to My Website</h1>
+    <p>This is a sample website with a header containing a background image, menu, search bar, night/day mode toggle, and language selection.</p>
+
+    <!-- Additional Image -->
+    <img src="https://source.unsplash.com/800x400/?technology" alt="Technology" class="additional-image">
+
+    <!-- Scrollable Section -->
+    <div class="scrollable-section">
+      <h3>Scrollable Content</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <!-- Vertical Cards -->
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text">This is a sample card with some content.</p>
+            <button class="btn btn-primary">Click Me</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Card 2</h5>
+            <p class="card-text">This is another sample card with some content.</p>
+            <button class="btn btn-success">Click Me</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">Card 3</h5>
+            <p class="card-text">This is yet another sample card with some content.</p>
+            <button class="btn btn-warning">Click Me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube Videos with Fallback -->
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+        </div>
+        <div class="youtube-fallback" style="display: none;">
+          <p>Waiting for YouTube video to load...</p>
+          <img src="https://via.placeholder.com/800x400?text=Standard+Banner" alt="Standard Banner" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" title="YouTube video" allowfullscreen></iframe>
+        </div>
+        <div class="youtube-fallback" style="display: none;">
+          <p>Waiting for YouTube video to load...</p>
+          <img src="https://via.placeholder.com/800x400?text=Standard+Banner" alt="Standard Banner" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>© 2023 My Website. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Terms of Service</a> | 
+        <a href="#">Contact Us</a>
+      </p>
+      <!-- Social Media Links -->
+      <div class="social-media">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    // Night/Day Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for light mode
+      } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for dark mode
+      }
+    });
+
+    // Language Selection
+    const languageSelect = document.getElementById('language-select');
+    languageSelect.addEventListener('change', (event) => {
+      const selectedLanguage = event.target.value;
+      alert(`Selected Language: ${selectedLanguage}`);
+      // You can add logic here to change the language of the website
+    });
+
+    // YouTube Fallback
+    const youtubeIframes = document.querySelectorAll('iframe');
+    youtubeIframes.forEach(iframe => {
+      iframe.onerror = () => {
+        const fallback = iframe.parentElement.nextElementSibling;
+        fallback.style.display = 'block';
+        iframe.style.display = 'none';
+      };
+    });
+  </script>
+</body>
+</html>
